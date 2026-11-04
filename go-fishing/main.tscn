@@ -1,0 +1,394 @@
+[gd_scene format=3 uid="uid://dy38no1dmo8vp"]
+
+[ext_resource type="Script" uid="uid://bho7oecmqgokc" path="res://main.gd" id="1_7mycd"]
+[ext_resource type="Texture2D" uid="uid://c7gg3of487ng5" path="res://assets/map/map_scene_empty.png" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://flhqflocm7b5" path="res://player.gd" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://ddrkncci7sa26" path="res://assets/player/fisherman_idle_spritesheet.png" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cgwevfhmv7uk8" path="res://assets/player/fisherman_walk_left_spritesheet (2).png" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bx1mkw10oufto" path="res://assets/player/fisherman_cast_sheet.png" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://c35j4ymkcun3f" path="res://assets/shop/shop.png" id="5_lquwl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
+atlas = ExtResource("4_272bh")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u8w0"]
+atlas = ExtResource("4_272bh")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odxb"]
+atlas = ExtResource("4_272bh")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lswn8"]
+atlas = ExtResource("4_272bh")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6jrf"]
+atlas = ExtResource("4_272bh")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2yge"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(1200, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg77c"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(1350, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycdy4"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(1500, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w48qg"]
+atlas = ExtResource("3_lquwl")
+region = Rect2(1650, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cqfq"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaehf"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_074og"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cegan"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82xsv"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_getpj"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryguw"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gsfjd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d13ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u8w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0odxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lswn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6jrf")
+}],
+"loop": 0,
+"name": &"cast",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2yge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bvp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lquwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kek77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c57u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efxa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg77c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycdy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w48qg")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vivmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cqfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaehf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_074og")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cegan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82xsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_getpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryguw")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsfjd"]
+size = Vector2(18, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0lpu"]
+size = Vector2(372, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dw1li"]
+size = Vector2(9.5, 107.02205)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1722"]
+size = Vector2(3, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfvx0"]
+size = Vector2(29, 46)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
+bg_color = Color(0.34509805, 0.22352941, 0.15294118, 1)
+
+[node name="Main" type="Node2D" unique_id=1848310768]
+script = ExtResource("1_7mycd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1642247738]
+position = Vector2(320, 180)
+texture = ExtResource("1_h2yge")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1400070313]
+z_index = 1
+script = ExtResource("2_1bvp3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1304906897]
+position = Vector2(381, 237)
+scale = Vector2(0.38666648, 0.37999994)
+sprite_frames = SubResource("SpriteFrames_gsfjd")
+animation = &"cast"
+
+[node name="RodTip" type="Marker2D" parent="Player/AnimatedSprite2D" unique_id=1434132416]
+position = Vector2(-70, -39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2084939325]
+position = Vector2(386, 232)
+shape = SubResource("RectangleShape2D_gsfjd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player" unique_id=250859231]
+
+[node name="FishingLine" type="Line2D" parent="Player" unique_id=1389454843]
+visible = false
+width = 1.0
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1254773161]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=2051198643]
+position = Vector2(454, 305)
+shape = SubResource("RectangleShape2D_m0lpu")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=682556865]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1837543191]
+position = Vector2(259.99997, 294)
+rotation = 0.28099802
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_dw1li")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=58239504]
+position = Vector2(638.5, 232)
+shape = SubResource("RectangleShape2D_n1722")
+
+[node name="Shop" type="Sprite2D" parent="." unique_id=1554734109]
+position = Vector2(547.5, 179.5)
+scale = Vector2(0.91499996, 0.7944445)
+texture = ExtResource("5_lquwl")
+
+[node name="ShopArea" type="Area2D" parent="." unique_id=2028961673]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopArea" unique_id=1035659133]
+position = Vector2(545.5, 220)
+shape = SubResource("RectangleShape2D_mfvx0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1265604434]
+
+[node name="ShopUI" type="Control" parent="CanvasLayer" unique_id=1692825258]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/ShopUI" unique_id=2039739617]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 12.0
+offset_right = 579.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mycd")
+
+[node name="Label" type="Label" parent="CanvasLayer/ShopUI/Panel" unique_id=1746370113]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 11.0
+offset_right = 342.0
+offset_bottom = 34.0
+text = "PRODAVNICA"
+
+[node name="Button" type="Button" parent="CanvasLayer/ShopUI/Panel" unique_id=1319976637]
+visible = false
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Zatvori"
+
+[node name="DepthUI" type="Control" parent="CanvasLayer" unique_id=1682465421]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DepthLabel" type="Label" parent="CanvasLayer/DepthUI" unique_id=2056600981]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 330.0
+offset_right = 617.0
+offset_bottom = 353.0
+text = "Dubina 60cm"
+
+[node name="+" type="Button" parent="CanvasLayer/DepthUI" unique_id=797685874]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 326.0
+offset_right = 635.0
+offset_bottom = 357.0
+text = "+"
+
+[node name="-" type="Button" parent="CanvasLayer/DepthUI" unique_id=698181950]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 327.0
+offset_right = 514.0
+offset_bottom = 358.0
+text = "-
+"
+
+[node name="FishingMinigameUI" type="Control" parent="CanvasLayer" unique_id=1627057899]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -318.0
+offset_top = 1.0
+offset_right = 320.0
+offset_bottom = 211.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="BarBackground" type="ColorRect" parent="CanvasLayer/FishingMinigameUI" unique_id=301202990]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 1.0
+offset_right = 391.0
+offset_bottom = 23.0
+color = Color(1, 0.18, 0.18, 1)
+
+[node name="GreenZone" type="ColorRect" parent="CanvasLayer/FishingMinigameUI/BarBackground" unique_id=1209819911]
+layout_mode = 0
+offset_left = 17.0
+offset_right = 109.0
+offset_bottom = 22.0
+color = Color(0, 0.5019608, 0, 1)
+
+[node name="CursorLine" type="ColorRect" parent="CanvasLayer/FishingMinigameUI/BarBackground" unique_id=115209645]
+layout_mode = 0
+offset_left = 61.0
+offset_top = -5.0
+offset_right = 65.0
+offset_bottom = 26.0
+color = Color(0.007843138, 1, 1, 1)
+
+[node name="FishSpawnPoint" type="Marker2D" parent="." unique_id=2046785600]
+position = Vector2(-44, 324)
+gizmo_extents = 17.0
+
+[node name="FishSpawnTimer" type="Timer" parent="." unique_id=1630974917]
+wait_time = 4.0
+autostart = true
+
+[connection signal="body_entered" from="ShopArea" to="Player" method="_on_shop_area_body_entered"]
+[connection signal="pressed" from="CanvasLayer/DepthUI/+" to="Player" method="increase_depth"]
+[connection signal="pressed" from="CanvasLayer/DepthUI/-" to="Player" method="decrease_depth"]

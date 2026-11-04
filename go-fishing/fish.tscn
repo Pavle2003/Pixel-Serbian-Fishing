@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://o4hwf6hy01vh"]
+
+[ext_resource type="Script" uid="uid://bn8mjgxyn6tp6" path="res://fish.gd" id="1_hgn23"]
+[ext_resource type="Texture2D" uid="uid://fk7c5bnrc2ne" path="res://assets/fishes/saran.png" id="2_6ik3a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oovoc"]
+atlas = ExtResource("2_6ik3a")
+region = Rect2(0, 0, 520, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vtik"]
+atlas = ExtResource("2_6ik3a")
+region = Rect2(520, 0, 520, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10mov"]
+atlas = ExtResource("2_6ik3a")
+region = Rect2(1040, 0, 520, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn1kp"]
+atlas = ExtResource("2_6ik3a")
+region = Rect2(1560, 0, 520, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ng3n0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oovoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vtik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10mov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn1kp")
+}],
+"loop": 1,
+"name": &"SaranAnimated",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsfjd"]
+
+[node name="Node2D" type="Node2D" unique_id=223608253]
+
+[node name="Fish" type="CharacterBody2D" parent="." unique_id=448187296]
+z_index = 2
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_hgn23")
+
+[node name="Swim" type="AnimatedSprite2D" parent="Fish" unique_id=1145122393]
+scale = Vector2(0.37499997, 0.38125014)
+sprite_frames = SubResource("SpriteFrames_ng3n0")
+animation = &"SaranAnimated"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish" unique_id=1408788966]
+shape = SubResource("RectangleShape2D_gsfjd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Fish" unique_id=661455959]
+rect = Rect2(-86.666664, -53.333332, 170, 106.666664)
+
+[connection signal="screen_exited" from="Fish/VisibleOnScreenNotifier2D" to="Fish" method="_on_visible_on_screen_notifier_2d_screen_exited"]

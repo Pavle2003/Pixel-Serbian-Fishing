@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://slhptr04hgxk"]
+
+[ext_resource type="Texture2D" uid="uid://cbxk2ejggxfdv" path="res://assets/floats/float1.png" id="1_0nb7y"]
+[ext_resource type="Script" uid="uid://tfc5aixrfh6d" path="res://float.gd" id="1_luf18"]
+[ext_resource type="Texture2D" uid="uid://dx7q5kvrcjkmu" path="res://assets/hooks/hookWorm.png" id="2_2yy4h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luf18"]
+atlas = ExtResource("2_2yy4h")
+region = Rect2(0, 0, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbdl7"]
+atlas = ExtResource("2_2yy4h")
+region = Rect2(15, 0, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qr0m"]
+atlas = ExtResource("2_2yy4h")
+region = Rect2(30, 0, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okapc"]
+atlas = ExtResource("2_2yy4h")
+region = Rect2(45, 0, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gsfjd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luf18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbdl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qr0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okapc")
+}],
+"loop": 1,
+"name": &"hookWorm",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dw1li"]
+size = Vector2(13, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsfjd"]
+size = Vector2(96, 96)
+
+[node name="Float" type="Area2D" unique_id=2067252054]
+script = ExtResource("1_luf18")
+
+[node name="HookAndBait" type="Area2D" parent="." unique_id=748985713]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HookAndBait" unique_id=1402254746]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_gsfjd")
+animation = &"hookWorm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HookAndBait" unique_id=1451891050]
+position = Vector2(0.5, 14.5)
+shape = SubResource("RectangleShape2D_dw1li")
+
+[node name="UnderwaterLine" type="Line2D" parent="." unique_id=358414458]
+points = PackedVector2Array(0, 16)
+width = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851496237]
+texture = ExtResource("1_0nb7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=631984910]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_gsfjd")
