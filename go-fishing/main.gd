@@ -21,3 +21,7 @@ func _on_spawn_timer_timeout() -> void:
 		new_fish.global_position = spawn_point.global_position
 		add_child(new_fish)
 		print("Nova riba je stvorena! Trenutno u jezeru: ", current_fish_count + 1)
+
+
+func _on_ok_button_pressed() -> void:
+	pass # Replace with function body.

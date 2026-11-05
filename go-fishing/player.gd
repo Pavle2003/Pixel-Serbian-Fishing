@@ -13,7 +13,7 @@ const GRAVITY = 900.0
 @onready var fishing_minigame_ui: Control = get_node_or_null("../CanvasLayer/FishingMinigameUI")
 @onready var bar_background: ColorRect = get_node_or_null("../CanvasLayer/FishingMinigameUI/BarBackground")
 @onready var cursor_line: ColorRect = get_node_or_null("../CanvasLayer/FishingMinigameUI/BarBackground/CursorLine")
-@onready var catch_popup_ui: Control = get_node_or_null("../CanvasLayer/CatchPopupUI") 
+@export var catch_popup_ui: Control
 
 var target_depth: float = 1.0 
 var in_shop_area = false
@@ -238,12 +238,22 @@ func succeed_fishing() -> void:
 	if fishing_minigame_ui:
 		fishing_minigame_ui.visible = false
 		
+	print("DEBAGING: Ušli smo u succeed_fishing")
+	
+	if catch_popup_ui:
+		print("DEBAGING: catch_popup_ui POSTOJI!")
+		if catch_popup_ui.has_method("prikazi_ulov"):
+			print("DEBAGING: Pozivamo prikazi_ulov...")
+			catch_popup_ui.prikazi_ulov(active_fish)
+		else:
+			print("DEBAGING: GRESKA - Nema metodu prikazi_ulov!")
+	else:
+		print("DEBAGING: GRESKA - catch_popup_ui je NULL!")
+		
 	if active_fish and is_instance_valid(active_fish):
 		active_fish.queue_free()
 		active_fish = null
 		
-	print("Bravo! Uspešno si upecao ribu!")
-	show_catch_popup()
 	pull_rod()
 
 func fail_fishing() -> void:
@@ -259,5 +269,7 @@ func fail_fishing() -> void:
 	pull_rod()
 
 func show_catch_popup() -> void:
-	if catch_popup_ui:
-		catch_popup_ui.visible = true
+	if catch_popup_ui and catch_popup_ui.has_method("prikazi_ulov"):
+		catch_popup_ui.prikazi_ulov(active_fish)
+	else:
+		print("GREŠKA: CatchPopupUI nije povezan ili nema funkciju prikazi_ulov!")

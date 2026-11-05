@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cgwevfhmv7uk8" path="res://assets/player/fisherman_walk_left_spritesheet (2).png" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://bx1mkw10oufto" path="res://assets/player/fisherman_cast_sheet.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://c35j4ymkcun3f" path="res://assets/shop/shop.png" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://cytd6rc6pndms" path="res://catch_popup_ui.gd" id="8_4c57u"]
+[ext_resource type="Texture2D" uid="uid://dfbht5n57frbi" path="res://assets/shop/ram_za_ribu.png" id="9_efxa6"]
+[ext_resource type="Texture2D" uid="uid://laua52h6ftf7" path="res://assets/shop/ok_button.png" id="10_dg77c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
 atlas = ExtResource("4_272bh")
@@ -226,9 +229,10 @@ script = ExtResource("1_7mycd")
 position = Vector2(320, 180)
 texture = ExtResource("1_h2yge")
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1400070313]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1400070313 node_paths=PackedStringArray("catch_popup_ui")]
 z_index = 1
 script = ExtResource("2_1bvp3")
+catch_popup_ui = NodePath("../CanvasLayer/CatchPopupUI")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1304906897]
 position = Vector2(381, 237)
@@ -279,6 +283,7 @@ position = Vector2(545.5, 220)
 shape = SubResource("RectangleShape2D_mfvx0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1265604434]
+layer = 10
 
 [node name="ShopUI" type="Control" parent="CanvasLayer" unique_id=1692825258]
 visible = false
@@ -348,38 +353,121 @@ text = "-
 
 [node name="FishingMinigameUI" type="Control" parent="CanvasLayer" unique_id=1627057899]
 layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -318.0
-offset_top = 1.0
-offset_right = 320.0
-offset_bottom = 211.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="BarBackground" type="ColorRect" parent="CanvasLayer/FishingMinigameUI" unique_id=301202990]
-layout_mode = 0
-offset_left = 265.0
-offset_top = 1.0
-offset_right = 391.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_right = 63.0
+offset_bottom = 22.0
+grow_horizontal = 2
 color = Color(1, 0.18, 0.18, 1)
 
 [node name="GreenZone" type="ColorRect" parent="CanvasLayer/FishingMinigameUI/BarBackground" unique_id=1209819911]
 layout_mode = 0
-offset_left = 17.0
-offset_right = 109.0
+offset_left = 23.0
+offset_right = 104.0
 offset_bottom = 22.0
 color = Color(0, 0.5019608, 0, 1)
 
 [node name="CursorLine" type="ColorRect" parent="CanvasLayer/FishingMinigameUI/BarBackground" unique_id=115209645]
-layout_mode = 0
-offset_left = 61.0
-offset_top = -5.0
-offset_right = 65.0
-offset_bottom = 26.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.0
+offset_right = 2.0
+offset_bottom = 31.0
+grow_horizontal = 2
 color = Color(0.007843138, 1, 1, 1)
+
+[node name="CatchPopupUI" type="Control" parent="CanvasLayer" unique_id=895752065]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_4c57u")
+
+[node name="Panel" type="TextureRect" parent="CanvasLayer/CatchPopupUI" unique_id=588003362]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -96.0
+offset_right = 112.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_efxa6")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CatchPopupUI/Panel" unique_id=1372101473]
+layout_mode = 0
+offset_right = 224.0
+offset_bottom = 192.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WeightLabel" type="Label" parent="CanvasLayer/CatchPopupUI/Panel" unique_id=1780315754]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = 15.0
+offset_right = -33.0
+offset_bottom = 38.0
+
+[node name="GoldLabel" type="Label" parent="CanvasLayer/CatchPopupUI/Panel" unique_id=1921656935]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 138.0
+offset_right = 73.0
+offset_bottom = 161.0
+
+[node name="XpLabel" type="Label" parent="CanvasLayer/CatchPopupUI/Panel" unique_id=1254332510]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 138.0
+offset_right = 148.0
+offset_bottom = 161.0
+
+[node name="MeatLabel" type="Label" parent="CanvasLayer/CatchPopupUI/Panel" unique_id=1761052801]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 138.0
+offset_right = 214.0
+offset_bottom = 161.0
+
+[node name="OkButton" type="TextureButton" parent="CanvasLayer/CatchPopupUI/Panel" unique_id=171298575]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.92200005
+anchor_right = 0.504
+anchor_bottom = 0.92200005
+offset_left = -31.896004
+offset_top = -12.024017
+offset_right = 32.103996
+offset_bottom = 11.975983
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("10_dg77c")
 
 [node name="FishSpawnPoint" type="Marker2D" parent="." unique_id=2046785600]
 position = Vector2(-44, 324)
@@ -392,3 +480,4 @@ autostart = true
 [connection signal="body_entered" from="ShopArea" to="Player" method="_on_shop_area_body_entered"]
 [connection signal="pressed" from="CanvasLayer/DepthUI/+" to="Player" method="increase_depth"]
 [connection signal="pressed" from="CanvasLayer/DepthUI/-" to="Player" method="decrease_depth"]
+[connection signal="pressed" from="CanvasLayer/CatchPopupUI/Panel/OkButton" to="." method="_on_ok_button_pressed"]
