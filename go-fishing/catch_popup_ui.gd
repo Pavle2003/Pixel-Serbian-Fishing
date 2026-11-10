@@ -1,23 +1,26 @@
 extends Control
 
 @onready var texture_rect: TextureRect = $Panel/TextureRect
-@onready var weight_label: Label = $Panel/WeightLabel        
-@onready var gold_label: Label = $Panel/GoldLabel          
-@onready var xp_label: Label = $Panel/XpLabel              
-@onready var meat_label: Label = $Panel/MeatLabel          
-@onready var ok_button: TextureButton = $Panel/OkButton     
+@onready var fish_name_label: Label = $Panel/FishNameLabel
+@onready var weight_label: Label = $Panel/WeightLabel
+@onready var gold_label: Label = $Panel/GoldLabel
+@onready var xp_label: Label = $Panel/XpLabel
+@onready var meat_label: Label = $Panel/MeatLabel
+@onready var ok_button: TextureButton = $Panel/OkButton
 
 var trenutna_riba_podatci: Dictionary = {}
 
 func _ready() -> void:
-	visible = false # Prozor je sakriven dok se riba ne upeca
-	process_mode = Node.PROCESS_MODE_ALWAYS # Omogućava da dugme i prozor rade i kada je igra pauzirana
+	visible = false
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	if ok_button and not ok_button.pressed.is_connected(_on_ok_button_pressed):
+		ok_button.pressed.connect(_on_ok_button_pressed)
 
 func _on_ok_button_pressed() -> void:
 	visible = false
 	get_tree().paused = false
 	
-	# Vraćamo štap i čistimo ribu preko igrača
 	var player = get_tree().get_first_node_in_group("player")
 	if player and player.has_method("pull_rod"):
 		player.pull_rod()
@@ -33,13 +36,17 @@ func prikazi_ulov(fish_node: Node) -> void:
 		print("Greška: Podaci o ribi su prazni!")
 		return
 
-	if weight_label: 
+	# Upisujemo ime ribe iz rečnika
+	if fish_name_label and trenutna_riba_podatci.has("naziv"):
+		fish_name_label.text = trenutna_riba_podatci["naziv"]
+
+	if weight_label:
 		weight_label.text = str(trenutna_riba_podatci["tezina"]) + " kg"
-	if gold_label: 
+	if gold_label:
 		gold_label.text = str(trenutna_riba_podatci["zlato"])
-	if xp_label: 
+	if xp_label:
 		xp_label.text = str(trenutna_riba_podatci["xp"])
-	if meat_label: 
+	if meat_label:
 		meat_label.text = str(trenutna_riba_podatci["meso"])
 	
 	var fish_anim_sprite = fish_node.find_child("AnimatedSprite2D", true, false)
@@ -50,8 +57,9 @@ func prikazi_ulov(fish_node: Node) -> void:
 		var current_anim = fish_anim_sprite.animation
 		if current_anim:
 			texture_rect.texture = fish_anim_sprite.sprite_frames.get_frame_texture(current_anim, 0)
-			texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-			texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			
+		texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 
 	visible = true
 	get_tree().paused = true

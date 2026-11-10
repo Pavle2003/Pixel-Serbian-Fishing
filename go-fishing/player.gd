@@ -42,7 +42,22 @@ func _ready() -> void:
 		
 	update_depth_display()
 
+@onready var ranac_button: TextureButton = get_node_or_null("../CanvasLayer/RanacButton")
+var pulsing_time: float = 0.0
+
 func _physics_process(delta: float) -> void:
+	# --- DODAJ OVO NA KRAJ _physics_process FUNKCIJE ---
+	if GameManager.cuvarka.size() >= GameManager.maksimalni_kapacitet:
+		pulsing_time += delta * 6.0
+		var scale_factor = 1.0 + sin(pulsing_time) * 0.15
+		if ranac_button:
+			ranac_button.scale = Vector2(scale_factor, scale_factor)
+			ranac_button.pivot_offset = ranac_button.size / 2
+	else:
+		if ranac_button:
+			ranac_button.scale = Vector2(1, 1)
+	# --------------------------------------------------
+
 	if is_fishing:
 		velocity.x = 0
 		velocity.y = 0
@@ -53,6 +68,7 @@ func _physics_process(delta: float) -> void:
 			fishing_line.add_point(fishing_line.to_local(current_float.global_position))
 			
 		return
+  # ... ostatak tvog koda ...
 
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
@@ -112,6 +128,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			pull_rod()
 
 func cast_rod(click_pos: Vector2) -> void:
+	# --- DODAJ OVO NA SAM POČETAK ---
+	if GameManager.cuvarka.size() >= GameManager.maksimalni_kapacitet:
+		print("Čuvarka je puna! Ne možeš više da pecaš dok je ne isprazniš.")
+		return
+	# --------------------------------
+	
 	var min_x = 10.0
 	var max_x = 270.0
 	var min_y = 250.0
@@ -121,6 +143,7 @@ func cast_rod(click_pos: Vector2) -> void:
 		is_fishing = true
 		animated_sprite.play("cast")
 		print("Igrač je zamahnuo štapom...")
+		# ... ostatak tvog koda ...
 		
 		await get_tree().create_timer(0.9).timeout
 		

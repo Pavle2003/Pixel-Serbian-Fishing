@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bx1mkw10oufto" path="res://assets/player/fisherman_cast_sheet.png" id="4_272bh"]
 [ext_resource type="Texture2D" uid="uid://c35j4ymkcun3f" path="res://assets/shop/shop.png" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://cytd6rc6pndms" path="res://catch_popup_ui.gd" id="8_4c57u"]
-[ext_resource type="Texture2D" uid="uid://dfbht5n57frbi" path="res://assets/shop/ram_za_ribu.png" id="9_efxa6"]
+[ext_resource type="Texture2D" uid="uid://xdqqa47mog4b" path="res://assets/shop/ram_za_ribu.png" id="9_efxa6"]
 [ext_resource type="Texture2D" uid="uid://laua52h6ftf7" path="res://assets/shop/ok_button.png" id="10_dg77c"]
+[ext_resource type="Texture2D" uid="uid://dnf06alb6iny1" path="res://assets/icons/icon_fishbag.png" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://6sddok4md1k7" path="res://cuvarka_ui.tscn" id="12_dg77c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
 atlas = ExtResource("4_272bh")
@@ -390,7 +392,6 @@ grow_horizontal = 2
 color = Color(0.007843138, 1, 1, 1)
 
 [node name="CatchPopupUI" type="Control" parent="CanvasLayer" unique_id=895752065]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -415,9 +416,12 @@ grow_vertical = 2
 texture = ExtResource("9_efxa6")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/CatchPopupUI/Panel" unique_id=1372101473]
+custom_minimum_size = Vector2(160, 90)
 layout_mode = 0
-offset_right = 224.0
-offset_bottom = 192.0
+offset_left = 8.0
+offset_top = 45.0
+offset_right = 215.0
+offset_bottom = 135.0
 expand_mode = 1
 stretch_mode = 5
 
@@ -428,9 +432,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -98.0
+offset_left = -95.0
 offset_top = 15.0
-offset_right = -33.0
+offset_right = -30.0
 offset_bottom = 38.0
 
 [node name="GoldLabel" type="Label" parent="CanvasLayer/CatchPopupUI/Panel" unique_id=1921656935]
@@ -469,6 +473,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("10_dg77c")
 
+[node name="FishNameLabel" type="Label" parent="CanvasLayer/CatchPopupUI/Panel" unique_id=646462967]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 33.0
+offset_right = 198.0
+offset_bottom = 56.0
+horizontal_alignment = 1
+
+[node name="RanacButton" type="TextureButton" parent="CanvasLayer" unique_id=1119046792]
+offset_right = 64.0
+offset_bottom = 64.0
+texture_normal = ExtResource("11_efxa6")
+
+[node name="CuvarkaUI" parent="CanvasLayer" unique_id=520091918 instance=ExtResource("12_dg77c")]
+visible = false
+
 [node name="FishSpawnPoint" type="Marker2D" parent="." unique_id=2046785600]
 position = Vector2(-44, 324)
 gizmo_extents = 17.0
@@ -481,3 +501,4 @@ autostart = true
 [connection signal="pressed" from="CanvasLayer/DepthUI/+" to="Player" method="increase_depth"]
 [connection signal="pressed" from="CanvasLayer/DepthUI/-" to="Player" method="decrease_depth"]
 [connection signal="pressed" from="CanvasLayer/CatchPopupUI/Panel/OkButton" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/RanacButton" to="." method="_on_ranac_button_pressed"]

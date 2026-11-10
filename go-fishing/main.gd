@@ -25,3 +25,24 @@ func _on_spawn_timer_timeout() -> void:
 
 func _on_ok_button_pressed() -> void:
 	pass # Replace with function body.
+
+
+func _on_ranac_button_pressed() -> void:
+	$CanvasLayer/CuvarkaUI.otvori_cuvarku()
+
+@onready var ranac_button: TextureButton = $CanvasLayer/RanacButton # Proveri da li ti je putanja do ranca tačna
+
+var pulsing_time: float = 0.0
+
+func _process(delta: float) -> void:
+	# Proveravamo da li je čuvarka puna
+	if GameManager.cuvarka.size() >= GameManager.maksimalni_kapacitet:
+		pulsing_time += delta * 6.0
+		# Blago povećavanje i smanjivanje skale (efekt pulsiranja)
+		var scale_factor = 1.0 + sin(pulsing_time) * 0.15
+		if ranac_button:
+			ranac_button.scale = Vector2(scale_factor, scale_factor)
+			ranac_button.pivot_offset = ranac_button.size / 2 # Da pulsuje iz centra
+	else:
+		if ranac_button:
+			ranac_button.scale = Vector2(1, 1) # Vrati na normalu kad ima mesta

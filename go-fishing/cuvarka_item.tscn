@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://utw0kxh5utnw"]
+
+[node name="Node2D" type="TextureRect" unique_id=2137534162]
+custom_minimum_size = Vector2(150, 160)
+offset_right = 150.0
+offset_bottom = 160.0
+
+[node name="CuvarkaItem" type="Panel" parent="." unique_id=1242650093]
+custom_minimum_size = Vector2(150, 160)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CuvarkaItem" unique_id=448181594]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 88.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CuvarkaItem" unique_id=1266370449]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 110.0
+offset_right = 77.0
+offset_bottom = 159.0
