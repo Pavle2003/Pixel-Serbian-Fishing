@@ -21,16 +21,16 @@ func _ready() -> void:
 
 func update_depth(new_depth: float) -> void:
 	target_depth = new_depth
-	var visual_pixels = target_depth * 15.0 
+	var visual_pixels = target_depth * 14.0  
 	var end_point = Vector2(0, visual_pixels)
-	
-	if underwater_line:
-		underwater_line.clear_points()
-		underwater_line.add_point(Vector2(0, 0))
-		underwater_line.add_point(end_point)
 	
 	if hook_and_bait:
 		hook_and_bait.position = end_point
+		
+	if underwater_line:
+		underwater_line.clear_points()
+		underwater_line.add_point(Vector2(0, 0))
+		underwater_line.add_point(hook_and_bait.position)
 
 # Detekcija kada riba (CharacterBody2D ili RigidBody2D) udari u udicu
 func _on_hook_body_entered(body: Node2D) -> void:

@@ -44,7 +44,7 @@ animations = [{
 size = Vector2(13, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsfjd"]
-size = Vector2(96, 96)
+size = Vector2(14, 37)
 
 [node name="Float" type="Area2D" unique_id=2067252054]
 script = ExtResource("1_luf18")
@@ -52,7 +52,7 @@ script = ExtResource("1_luf18")
 [node name="HookAndBait" type="Area2D" parent="." unique_id=748985713]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HookAndBait" unique_id=1402254746]
-position = Vector2(0, 16)
+position = Vector2(0, 6)
 sprite_frames = SubResource("SpriteFrames_gsfjd")
 animation = &"hookWorm"
 
@@ -68,5 +68,5 @@ width = 1.0
 texture = ExtResource("1_0nb7y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=631984910]
-position = Vector2(0, 16)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_gsfjd")

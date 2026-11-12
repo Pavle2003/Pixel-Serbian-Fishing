@@ -181,7 +181,7 @@ func pull_rod() -> void:
 
 # --- UPRAVLJANJE DUBINOM ---
 func increase_depth() -> void:
-	target_depth = min(4.0, target_depth + 1.0)
+	target_depth = min(5.0, target_depth + 1.0)
 	update_depth_display()
 
 func decrease_depth() -> void:

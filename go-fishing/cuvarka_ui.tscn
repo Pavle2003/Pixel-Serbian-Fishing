@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://6sddok4md1k7"]
 
 [ext_resource type="Script" uid="uid://6yx3rp0bjk18" path="res://cuvarka_ui.gd" id="1_37hsn"]
-[ext_resource type="Texture2D" uid="uid://g68eakagev8s" path="res://assets/icons/x_button.png" id="2_pv2p3"]
-[ext_resource type="Texture2D" uid="uid://bfmdb4mauwtod" path="res://assets/icons/ui_backpack_frame_full.png" id="3_tsmey"]
+[ext_resource type="Texture2D" uid="uid://bhwwfdcft7knc" path="res://assets/icons/ui_backpack_frame_full.png" id="3_tsmey"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6q136"]
 
 [node name="CuvarkaUI" type="Control" unique_id=520091918]
 layout_mode = 3
@@ -26,6 +27,7 @@ offset_right = 302.5
 offset_bottom = 164.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6q136")
 
 [node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1253151616]
 layout_mode = 1
@@ -42,8 +44,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -603.5
-offset_top = 30.5
+offset_left = -570.5
+offset_top = 39.5
+offset_right = -35.5
+offset_bottom = -19.5
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -53,11 +57,12 @@ columns = 3
 
 [node name="Label" type="Label" parent="Panel" unique_id=598788865]
 layout_mode = 0
-offset_left = 19.5
-offset_top = 1.5
-offset_right = 59.5
-offset_bottom = 17.5
+offset_left = 35.5
+offset_top = 7.5
+offset_right = 105.5
+offset_bottom = 26.5
 theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="Panel" unique_id=480270579]
 z_index = 1
@@ -65,11 +70,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -21.5
-offset_top = 1.0
-offset_right = 3.0
-offset_bottom = 24.0
+offset_left = -14.5
+offset_top = 4.5
+offset_right = -3.5
+offset_bottom = 13.5
 grow_horizontal = 0
-texture_normal = ExtResource("2_pv2p3")
 
 [connection signal="pressed" from="Panel/TextureButton" to="." method="_on_texture_button_pressed"]

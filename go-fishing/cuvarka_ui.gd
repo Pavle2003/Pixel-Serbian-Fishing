@@ -34,7 +34,9 @@ func osvezi_prikaz() -> void:
 		grid_container.add_child(item)
 		
 		var img_rect = item.find_child("TextureRect", true, false)
-		var lbl = item.find_child("Label", true, false)
+		var lbl = item.find_child("Podaci_Kilaza", true, false)
+		var gold_lbl = item.find_child("Gold", true, false)
+		var meat_lbl = item.find_child("Meet", true, false)
 		var obrisi_btn = item.find_child("Button", true, false)
 		
 		if img_rect and riba["tekstura"]:
@@ -44,6 +46,12 @@ func osvezi_prikaz() -> void:
 			
 		if lbl:
 			lbl.text = riba["naziv"] + "\n" + str(riba["tezina"]) + " kg"
+			
+		if gold_lbl:
+			gold_lbl.text = str(riba["zlato"])
+			
+		if meat_lbl:
+			meat_lbl.text = str(riba["meso"])
 			
 		if obrisi_btn:
 			obrisi_btn.pressed.connect(func():
